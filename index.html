@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Турбина - Выбор режима</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="header-content">
+            <div class="phone-block">
+                <svg class="phone-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.44-5.15-3.75-6.59-6.59l1.97-1.57c.26-.26.36-.62.25-1.01-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+                </svg>
+                <span>Если вы заинтересовались нашим проектом звоните по номеру<br>
+                <strong>+7(900)-913-66-07</strong></span>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link active">Главная</a>
+                <span>/</span>
+                <a href="scheme.html" class="nav-link">Турбина</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="main-container">
+        <div class="content-wrapper">
+            <!-- Левая часть с параметрами -->
+            <div class="params-section" id="paramsSection">
+                <h2 class="section-title">Выберите режим турбины для изучения</h2>
+                
+                <!-- Параметры для конденсационной турбины -->
+                <div class="params-block active" id="condParams">
+                    <div class="param-item">
+                        <label>Мощность (МВт):</label>
+                        <input type="number" class="param-input" id="condPower" placeholder="" step="10">
+                    </div>
+                </div>
+
+                <!-- Параметры для теплофикационной турбины -->
+                <div class="params-block" id="heatParams">
+                    <div class="param-item">
+                        <label>Тепловая нагрузка (МВт):</label>
+                        <input type="number" class="param-input" id="heatLoad" placeholder="" step="10">
+                    </div>
+                    <div class="param-item">
+                        <label>Температура наружного воздуха (°C):</label>
+                        <input type="number" class="param-input" id="heatTemp" placeholder="" step="1">
+                    </div>
+                    <div class="param-group-title">Температурный график сетевой воды:</div>
+                    <div class="param-row">
+                        <div class="param-item">
+                            <label>Температура прямой воды:</label>
+                            <input type="number" class="param-input" id="tempSupply"  step="1" >
+                        </div>
+                        <div class="param-item">
+                            <label>Температура обратной воды:</label>
+                            <input type="number" class="param-input" id="tempReturn"  step="1" >
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Кнопка Рассчитать -->
+                <div class="calculate-button-container">
+                    <a href="scheme.html" class="calculate-button" id="calcButton">
+                        Рассчитать
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Правая часть с изображением -->
+            <div class="turbine-section">
+                <div class="turbine-card">
+                    <div class="image-wrapper">
+                        <img src="images/turbine1.jpg"
+                             alt="Конденсационная турбина" 
+                             class="turbine-image active" 
+                             id="condImage"
+                             onerror="this.style.display='none'">
+                        <img src="images/turbine2.jpg"
+                             alt="Теплофикационная турбина" 
+                             class="turbine-image" 
+                             id="heatImage"
+                             onerror="this.style.display='none'">
+                    </div>
+                    
+                    <!-- Кнопки переключения -->
+                    <div class="swap-buttons">
+                        <button class="swap-btn" id="swapLeft" onclick="swapTurbine('left')" type="button">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 18l-6-6 6-6"/>
+                            </svg>
+                        </button>
+                        <button class="swap-btn" id="swapRight" onclick="swapTurbine('right')" type="button">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 18l6-6-6-6"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Название типа турбины -->
+                    <div class="turbine-label" id="turbineLabel">
+                        Конденсационный
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="contact-item">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                <span>fhgnvhghghfn@nvhgn</span>
+            </div>
+            <div class="contact-item">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.44-5.15-3.75-6.59-6.59l1.97-1.57c.26-.26.36-.62.25-1.01-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+                </svg>
+                <span>+7(900)913-66-07</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
